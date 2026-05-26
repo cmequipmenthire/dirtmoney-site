@@ -7,7 +7,7 @@
   <meta name="description" content="Few mates. Right tools. Absolute carnage. Australian heavy machinery and earthmoving content." />
   <meta property="og:title" content="DIRT MONEY" />
   <meta property="og:description" content="Few mates. Right tools. Absolute carnage." />
-  <meta property="og:image" content="https://dirtmoney.ai/og.jpg" />
+  <meta property="og:image" content="https://dirtmoney.ai/logo.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -56,11 +56,15 @@
       border-bottom: 1px solid var(--border);
     }
     .nav-logo {
-      font-family: var(--bebas);
-      font-size: 1.3rem;
-      letter-spacing: 0.18em;
-      color: var(--accent);
+      display: flex;
+      align-items: center;
       text-decoration: none;
+    }
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(212,255,0,0.3));
     }
     .nav-right {
       display: flex; align-items: center; gap: 28px;
@@ -233,9 +237,19 @@
       background: linear-gradient(to bottom, var(--muted), transparent);
     }
 
+    .hero-logo-wrap {
+      margin-bottom: 28px;
+    }
+    .hero-logo {
+      width: clamp(220px, 40vw, 500px);
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 4px 40px rgba(212,255,0,0.2)) drop-shadow(0 2px 12px rgba(0,0,0,0.9));
+    }
     @media (max-width: 600px) {
       .hero-stat { padding: 14px 20px; }
       .hero-scroll { display: none; }
+      .hero-logo { width: clamp(180px, 75vw, 320px); }
     }
 
     /* ── ABOUT ── */
@@ -454,11 +468,12 @@
       display: flex; justify-content: space-between; align-items: center;
       flex-wrap: wrap; gap: 12px;
     }
-    .footer-logo {
-      font-family: var(--bebas);
-      font-size: 1.1rem;
-      letter-spacing: 0.18em;
-      color: var(--accent);
+    .footer-logo img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 6px rgba(212,255,0,0.2));
     }
     .footer-links {
       display: flex; gap: 24px;
@@ -486,7 +501,7 @@
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">DIRT MONEY</a>
+  <a class="nav-logo" href="#"><img src="/logo.jpg" alt="DIRT MONEY" /></a>
   <div class="nav-right">
     <a href="#about">About</a>
     <a href="#build">The Build</a>
@@ -503,7 +518,9 @@
 
   <div class="hero-content">
     <div class="hero-eyebrow">Western Australia &nbsp;·&nbsp; Est. 2026</div>
-    <h1>DIRT<span class="line2">MONEY</span></h1>
+    <div class="hero-logo-wrap">
+      <img src="/logo.jpg" alt="DIRT MONEY — Break Shit. Build Shit." class="hero-logo" />
+    </div>
     <p class="hero-tagline">Few mates. Right tools. Absolute carnage.</p>
 
     <div class="hero-stats">
@@ -624,7 +641,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">DIRT MONEY</div>
+  <div class="footer-logo"><img src="/logo.jpg" alt="DIRT MONEY" /></div>
   <div class="footer-links">
     <a href="https://instagram.com/dirt.moneyco" target="_blank">Instagram</a>
     <a href="https://kit.dirtmoney.ai" target="_blank">Media Kit</a>
