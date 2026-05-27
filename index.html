@@ -763,6 +763,75 @@
     <span class="ghost-number">03</span>
   </section>
 
+  <!-- NEXT BUILD TEASER -->
+  <section id="next-build" style="background:#050505; border-top:3px solid #d4ff00; border-bottom:1px solid #1c1c1c; padding:80px 6vw; text-align:center; position:relative; overflow:hidden;">
+    <!-- Ghost text -->
+    <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; user-select:none;">
+      <span style="font-family:'Bebas Neue',sans-serif; font-size:clamp(18vw,28vw,420px); color:rgba(212,255,0,0.018); line-height:1;">NEXT</span>
+    </div>
+    <div style="position:relative; z-index:1; max-width:900px; margin:0 auto;">
+      <div style="font-family:'DM Mono',monospace; font-size:0.65rem; color:#d4ff00; letter-spacing:0.35em; text-transform:uppercase; margin-bottom:20px;">— Coming Next —</div>
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,9vw,7rem); line-height:0.88; color:#f0f0f0; margin-bottom:8px;">THE NEXT<br><span style="color:#d4ff00;">BUILD</span></div>
+      <div style="font-family:'Barlow Condensed',sans-serif; font-size:1rem; color:#666; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:48px;">Details classified. Reveal incoming.</div>
+      <!-- Countdown -->
+      <div id="next-countdown" style="display:flex; justify-content:center; gap:0; margin-bottom:40px;">
+        <div style="text-align:center; padding:20px 28px; border:1px solid #1c1c1c;">
+          <div id="nc-days" style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,5.5rem); color:#d4ff00; line-height:1;">45</div>
+          <div style="font-family:'DM Mono',monospace; font-size:0.55rem; color:#444; letter-spacing:0.25em; text-transform:uppercase; margin-top:6px;">Days</div>
+        </div>
+        <div style="text-align:center; padding:20px 28px; border:1px solid #1c1c1c; border-left:none;">
+          <div id="nc-hours" style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,5.5rem); color:#d4ff00; line-height:1;">00</div>
+          <div style="font-family:'DM Mono',monospace; font-size:0.55rem; color:#444; letter-spacing:0.25em; text-transform:uppercase; margin-top:6px;">Hours</div>
+        </div>
+        <div style="text-align:center; padding:20px 28px; border:1px solid #1c1c1c; border-left:none;">
+          <div id="nc-mins" style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,5.5rem); color:#d4ff00; line-height:1;">00</div>
+          <div style="font-family:'DM Mono',monospace; font-size:0.55rem; color:#444; letter-spacing:0.25em; text-transform:uppercase; margin-top:6px;">Mins</div>
+        </div>
+        <div style="text-align:center; padding:20px 28px; border:1px solid #1c1c1c; border-left:none;">
+          <div id="nc-secs" style="font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,5.5rem); color:#d4ff00; line-height:1;">00</div>
+          <div style="font-family:'DM Mono',monospace; font-size:0.55rem; color:#444; letter-spacing:0.25em; text-transform:uppercase; margin-top:6px;">Secs</div>
+        </div>
+      </div>
+      <!-- Redacted details -->
+      <div style="max-width:480px; margin:0 auto 40px; text-align:left;">
+        <div style="font-family:'DM Mono',monospace; font-size:0.62rem; color:#333; letter-spacing:0.12em; margin-bottom:12px;">CLASSIFIED — BUILD DETAILS</div>
+        <div style="background:#1a1a00; border-left:3px solid #d4ff00; padding:20px 24px;">
+          <div style="margin-bottom:10px; display:flex; gap:12px; align-items:center;">
+            <span style="font-family:'DM Mono',monospace; font-size:0.58rem; color:#555; letter-spacing:0.1em; min-width:80px;">MACHINE</span>
+            <span style="background:#1c1c00; color:#1c1c00; font-family:'DM Mono',monospace; font-size:0.85rem; letter-spacing:0.05em; padding:2px 8px; flex:1;">████████████████████</span>
+          </div>
+          <div style="margin-bottom:10px; display:flex; gap:12px; align-items:center;">
+            <span style="font-family:'DM Mono',monospace; font-size:0.58rem; color:#555; letter-spacing:0.1em; min-width:80px;">LOCATION</span>
+            <span style="background:#1c1c00; color:#1c1c00; font-family:'DM Mono',monospace; font-size:0.85rem; letter-spacing:0.05em; padding:2px 8px; flex:1;">████████████</span>
+          </div>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <span style="font-family:'DM Mono',monospace; font-size:0.58rem; color:#555; letter-spacing:0.1em; min-width:80px;">OUTCOME</span>
+            <span style="background:#1c1c00; color:#1c1c00; font-family:'DM Mono',monospace; font-size:0.85rem; letter-spacing:0.05em; padding:2px 8px; flex:1;">████████████████████████</span>
+          </div>
+        </div>
+      </div>
+      <a href="/next.html" style="font-family:'Bebas Neue',sans-serif; font-size:0.95rem; letter-spacing:0.18em; background:#d4ff00; color:#080808; padding:13px 32px; text-decoration:none; display:inline-block; transition:background 0.2s;" onmouseover="this.style.background='#a8cc00'" onmouseout="this.style.background='#d4ff00'">SEE WHAT'S COMING →</a>
+    </div>
+  </section>
+  <script>
+    (function() {
+      const reveal = new Date('2026-07-11T00:00:00+08:00');
+      function tick() {
+        const diff = reveal - new Date();
+        if (diff <= 0) {
+          document.getElementById('nc-days').textContent = '000';
+          return;
+        }
+        document.getElementById('nc-days').textContent  = String(Math.floor(diff/(1000*60*60*24))).padStart(2,'0');
+        document.getElementById('nc-hours').textContent = String(Math.floor((diff%(1000*60*60*24))/(1000*60*60))).padStart(2,'0');
+        document.getElementById('nc-mins').textContent  = String(Math.floor((diff%(1000*60*60))/(1000*60))).padStart(2,'0');
+        document.getElementById('nc-secs').textContent  = String(Math.floor((diff%(1000*60))/1000)).padStart(2,'0');
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-inner">
