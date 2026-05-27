@@ -3,841 +3,765 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DIRT MONEY — Few Mates. Right Tools. Absolute Carnage.</title>
-  <meta name="description" content="Western Australian heavy machinery and earthmoving content brand. 10M+ views. Zero paid promotion. The real deal." />
+  <title>DIRT MONEY — Real Machines. Real Work. WA.</title>
+  <meta name="description" content="Western Australian heavy machinery and earthmoving content. Few mates. Right tools. Absolute carnage." />
   <meta property="og:title" content="DIRT MONEY" />
   <meta property="og:description" content="Few mates. Right tools. Absolute carnage." />
-  <meta property="og:image" content="https://dirtmoney.ai/logo.png" />
-  <meta property="og:url" content="https://dirtmoney.ai" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:image" content="/hero.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --black:  #080808;
-      --deep:   #040404;
-      --card:   #0f0f0f;
-      --border: #1c1c1c;
-      --accent: #d4ff00;
-      --adim:   #a8cc00;
-      --white:  #f0f0f0;
-      --grey:   #666;
-      --muted:  #3a3a3a;
-      --bebas:  'Bebas Neue', sans-serif;
-      --bar:    'Barlow Condensed', sans-serif;
-      --mono:   'DM Mono', monospace;
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html { scroll-behavior: smooth; }
+    :root {
+      --black: #080808;
+      --green: #d4ff00;
+      --white: #f5f5f0;
+      --grey: #888880;
+      --bebas: 'Bebas Neue', sans-serif;
+      --barlow: 'Barlow Condensed', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background: var(--black);
       color: var(--white);
-      font-family: var(--bar);
-      -webkit-font-smoothing: antialiased;
+      font-family: var(--barlow);
+      font-size: 18px;
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* ─────────────────────────────────────
-       NAV
-    ───────────────────────────────────── */
+    /* ─── NAV ─── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      height: 60px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5vw;
-      background: rgba(8,8,8,0.85);
-      backdrop-filter: blur(24px) saturate(140%);
-      -webkit-backdrop-filter: blur(24px) saturate(140%);
-      border-bottom: 1px solid rgba(28,28,28,0.8);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2.5rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(8, 8, 8, 0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .nav-logo { display: flex; align-items: center; }
+
     .nav-logo img {
-      height: 36px; width: auto; display: block;
-      filter: drop-shadow(0 0 10px rgba(212,255,0,0.2));
+      height: 36px;
+      width: auto;
+      display: block;
     }
-    .nav-links { display: flex; align-items: center; gap: 32px; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
     .nav-links a {
       font-family: var(--mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--grey);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links .nav-pill {
-      background: var(--accent);
-      color: var(--black) !important;
-      padding: 8px 20px;
-      letter-spacing: 0.15em;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .nav-links .nav-pill:hover { background: var(--adim); transform: translateY(-1px); }
-    @media (max-width: 640px) {
-      .nav-links a:not(.nav-pill) { display: none; }
+
+    .nav-links a:hover {
+      color: var(--green);
     }
 
-    /* ─────────────────────────────────────
-       HERO
-    ───────────────────────────────────── */
+    /* ─── HERO ─── */
     #hero {
       position: relative;
-      min-height: 100svh;
+      height: 100vh;
+      min-height: 600px;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
-      background: var(--black);
+      justify-content: flex-end;
+      background-image: url('/hero.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
     }
 
-    /* Animated grid */
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(212,255,0,0.032) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(212,255,0,0.032) 1px, transparent 1px);
-      background-size: 76px 76px;
-      animation: gridMove 28s linear infinite;
-      pointer-events: none;
-    }
-    @keyframes gridMove { to { background-position: 76px 76px; } }
-
-    /* Left accent bar */
-    .hero-bar {
-      position: absolute; left: 0; top: 0; bottom: 0;
-      width: 4px; background: var(--accent); z-index: 2;
-    }
-
-    /* Top area: logo + eyebrow */
-    .hero-top {
-      padding: 96px 6vw 0;
-      position: relative; z-index: 2;
-    }
-    .hero-logo-mark {
-      width: clamp(180px, 34vw, 420px);
-      height: auto; display: block;
-      filter: drop-shadow(0 4px 60px rgba(212,255,0,0.18));
-      margin-bottom: 28px;
-    }
-    .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      color: var(--accent);
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      display: flex; align-items: center; gap: 14px;
-    }
-    .hero-eyebrow::before {
+    #hero::before {
       content: '';
-      width: 28px; height: 1px; background: var(--accent);
-      flex-shrink: 0;
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(8,8,8,0.35) 0%,
+        rgba(8,8,8,0.2) 40%,
+        rgba(8,8,8,0.7) 70%,
+        rgba(8,8,8,0.97) 100%
+      );
     }
 
-    /* Massive stacked type */
-    .hero-type-block {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 48px 5vw 0;
-      position: relative; z-index: 2;
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 2.5rem 0;
     }
-    .hero-word {
+
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
       font-family: var(--bebas);
-      font-size: clamp(5rem, 20vw, 18rem);
-      line-height: 0.86;
-      letter-spacing: 0.01em;
+      font-size: clamp(7rem, 18vw, 17rem);
+      line-height: 0.88;
+      letter-spacing: -0.01em;
+      color: var(--white);
       display: block;
     }
-    .hero-word-dirt  { color: var(--white); }
-    .hero-word-money { color: var(--accent); }
+
+    .hero-title span {
+      display: block;
+    }
 
     .hero-tagline {
-      font-family: var(--bar);
-      font-size: clamp(0.85rem, 1.8vw, 1.1rem);
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--grey);
-      margin-top: 28px;
-      padding-left: 4px;
+      font-family: var(--barlow);
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 400;
+      color: rgba(245,245,240,0.7);
+      margin-top: 1.25rem;
+      letter-spacing: 0.03em;
     }
 
-    .hero-actions {
-      display: flex; flex-wrap: wrap; gap: 12px;
-      margin-top: 36px;
-    }
-    .btn-prim {
-      background: var(--accent);
-      color: var(--black);
-      font-family: var(--bebas);
-      font-size: 0.95rem;
-      letter-spacing: 0.18em;
-      padding: 13px 32px;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-prim:hover { background: var(--adim); transform: translateY(-1px); }
-
-    .btn-ghost {
-      border: 1px solid var(--muted);
-      color: var(--grey);
-      font-family: var(--bebas);
-      font-size: 0.95rem;
-      letter-spacing: 0.18em;
-      padding: 13px 32px;
-      text-decoration: none;
-      display: inline-block;
-      transition: border-color 0.2s, color 0.2s, transform 0.15s;
-    }
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
-
-    /* Full-bleed stats strip at hero bottom */
-    .hero-stats-strip {
+    /* Stats strip */
+    .hero-stats {
+      position: relative;
+      z-index: 1;
       display: flex;
-      border-top: 1px solid var(--border);
-      position: relative; z-index: 2;
-      margin-top: 60px;
-      background: rgba(4,4,4,0.7);
+      gap: 0;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
-    .hero-stat {
+
+    .stat {
       flex: 1;
-      padding: 22px 4vw 26px;
-      border-right: 1px solid var(--border);
+      padding: 1.5rem 2.5rem;
+      border-right: 1px solid rgba(255,255,255,0.1);
     }
-    .hero-stat:last-child { border-right: none; }
-    .hstat-num {
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
       font-family: var(--bebas);
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      color: var(--accent);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--green);
       line-height: 1;
-      letter-spacing: 0.02em;
     }
-    .hstat-lbl {
+
+    .stat-label {
       font-family: var(--mono);
-      font-size: 0.56rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
       color: var(--grey);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-top: 5px;
-    }
-    @media (max-width: 540px) {
-      .hero-stats-strip { flex-wrap: wrap; }
-      .hero-stat { flex: 0 0 50%; }
-      .hero-stat:nth-child(2) { border-right: none; }
-      .hero-stat { padding: 16px 5vw 18px; }
+      margin-top: 0.3rem;
     }
 
-    /* Vertical scroll indicator */
-    .hero-scroll {
-      position: absolute; right: 5vw; bottom: 28px;
-      font-family: var(--mono);
-      font-size: 0.54rem;
-      color: var(--muted);
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      writing-mode: vertical-rl;
-      display: flex; align-items: center; gap: 10px;
-      z-index: 2;
-    }
-    .hero-scroll::after {
-      content: '';
-      width: 1px; height: 44px;
-      background: linear-gradient(to bottom, var(--muted), transparent);
-    }
-    @media (max-width: 640px) { .hero-scroll { display: none; } }
-
-    /* ─────────────────────────────────────
-       PULLQUOTE BREAK — 01
-    ───────────────────────────────────── */
-    .pq-break {
-      padding: 100px 6vw;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+    /* ─── SECTION COMMON ─── */
+    section {
       position: relative;
-      overflow: hidden;
-      background: var(--deep);
     }
-    .pq-break::before {
-      content: '"';
-      position: absolute;
-      left: 0; top: -6vw;
+
+    .ghost-number {
       font-family: var(--bebas);
-      font-size: 40vw;
-      color: rgba(212,255,0,0.018);
+      font-size: clamp(6rem, 14vw, 11rem);
+      color: rgba(255,255,255,0.04);
       line-height: 1;
-      pointer-events: none;
-    }
-    .pq-rule { width: 48px; height: 1px; background: var(--accent); margin: 0 auto; }
-    .pq-rule.top { margin-bottom: 40px; }
-    .pq-rule.bot { margin-top: 40px; }
-    .pq-text {
-      font-family: var(--bebas);
-      font-size: clamp(2.5rem, 7.5vw, 6.5rem);
-      line-height: 0.9;
-      color: var(--white);
-      max-width: 920px;
-      margin: 0 auto 24px;
-      position: relative;
-    }
-    .pq-text .ac { color: var(--accent); }
-    .pq-attr {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      color: var(--grey);
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-    }
-
-    /* ─────────────────────────────────────
-       ABOUT — Section 01
-    ───────────────────────────────────── */
-    #about {
-      padding: 140px 6vw;
-      position: relative;
-      overflow: hidden;
-    }
-    /* Ghost "01" */
-    #about::before {
-      content: '01';
       position: absolute;
-      left: -4vw; top: 50%;
-      transform: translateY(-50%);
-      font-family: var(--bebas);
-      font-size: clamp(28vw, 38vw, 660px);
-      color: rgba(212,255,0,0.022);
-      line-height: 0.85;
+      top: 2rem;
+      right: 2.5rem;
       pointer-events: none;
       user-select: none;
-      z-index: 0;
-    }
-    #about .inner {
-      max-width: 1120px; margin: 0 auto;
-      position: relative; z-index: 1;
     }
 
-    .sec-label {
+    .section-label {
       font-family: var(--mono);
-      font-size: 0.6rem;
-      color: var(--accent);
-      letter-spacing: 0.32em;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      display: flex; align-items: center; gap: 14px;
-      margin-bottom: 52px;
+      color: var(--green);
+      margin-bottom: 1rem;
     }
-    .sec-label::before {
-      content: '';
-      width: 24px; height: 1px; background: var(--accent);
-      flex-shrink: 0;
+
+    /* ─── ABOUT ─── */
+    #about {
+      padding: 7rem 2.5rem;
+      background: var(--black);
     }
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 80px;
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: stretch;
     }
-    @media (max-width: 860px) {
-      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+
+    .about-photo {
+      position: relative;
+      min-height: 480px;
+      background-image: url('/shed.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .about-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(8,8,8,0.7) 0%,
+        rgba(8,8,8,0.1) 60%,
+        transparent 100%
+      );
+    }
+
+    .about-photo-caption {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      z-index: 1;
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245,245,240,0.5);
+    }
+
+    .about-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem 0;
     }
 
     .about-heading {
       font-family: var(--bebas);
-      font-size: clamp(3rem, 7vw, 5.8rem);
-      line-height: 0.9;
-      letter-spacing: 0.02em;
-      margin-bottom: 36px;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      line-height: 0.92;
+      color: var(--white);
+      margin-bottom: 2rem;
     }
-    .about-heading .ac { color: var(--accent); }
+
+    .about-heading em {
+      color: var(--green);
+      font-style: normal;
+    }
 
     .about-body {
+      font-family: var(--barlow);
       font-size: 1.05rem;
       font-weight: 400;
-      color: #999;
-      line-height: 1.72;
-      margin-bottom: 18px;
+      line-height: 1.75;
+      color: rgba(245,245,240,0.75);
     }
-    .about-body:last-of-type { margin-bottom: 0; }
 
-    .about-cards { display: flex; flex-direction: column; gap: 14px; }
+    .about-body p + p {
+      margin-top: 1.25rem;
+    }
 
-    .fact-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      padding: 22px 26px;
-      transition: border-color 0.2s;
+    /* ─── WHO WE ARE ─── */
+    #who {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      background-image: url('/portrait.jpg');
+      background-size: cover;
+      background-position: center 20%;
+      background-attachment: fixed;
     }
-    .fact-card:hover { border-color: var(--accent); }
-    .fc-label {
-      font-family: var(--mono);
-      font-size: 0.57rem;
-      color: var(--grey);
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      margin-bottom: 7px;
+
+    #who::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(8,8,8,0.92) 0%,
+        rgba(8,8,8,0.6) 60%,
+        rgba(8,8,8,0.3) 100%
+      );
     }
-    .fc-value {
+
+    .who-content {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 2.5rem;
+      max-width: 700px;
+    }
+
+    .who-quote {
       font-family: var(--bebas);
-      font-size: 1.3rem;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.95;
       color: var(--white);
-      letter-spacing: 0.04em;
-      margin-bottom: 4px;
-    }
-    .fc-sub {
-      font-size: 0.85rem;
-      color: #666;
-      line-height: 1.5;
+      margin-bottom: 1.5rem;
     }
 
-    /* ─────────────────────────────────────
-       BUILD SERIES — Section 02
-    ───────────────────────────────────── */
+    .who-quote .accent {
+      color: var(--green);
+    }
+
+    .who-attribution {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    /* ─── BUILD SERIES ─── */
     #build {
       position: relative;
-      background: #0c0c0c;
-      padding: 160px 6vw 120px;
-      overflow: hidden;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      background-image: url('/heli.jpg');
+      background-size: cover;
+      background-position: center 35%;
     }
-    /* Diagonal top edge */
+
     #build::before {
       content: '';
       position: absolute;
-      top: -64px; left: 0; right: 0;
-      height: 80px;
-      background: #0c0c0c;
-      clip-path: polygon(0 100%, 100% 0%, 100% 100%);
-    }
-    /* Ghost "02" */
-    #build::after {
-      content: '02';
-      position: absolute;
-      right: -3vw; top: 50%;
-      transform: translateY(-50%);
-      font-family: var(--bebas);
-      font-size: clamp(28vw, 38vw, 660px);
-      color: rgba(212,255,0,0.022);
-      line-height: 0.85;
-      pointer-events: none;
-      user-select: none;
-    }
-    #build .inner {
-      max-width: 1120px; margin: 0 auto;
-      position: relative; z-index: 1;
+      inset: 0;
+      background: linear-gradient(
+        to left,
+        rgba(8,8,8,0.9) 0%,
+        rgba(8,8,8,0.75) 50%,
+        rgba(8,8,8,0.4) 100%
+      );
     }
 
-    .build-banner {
-      background: var(--black);
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--accent);
-      padding: 56px 56px 52px;
+    .build-content {
       position: relative;
-      overflow: hidden;
+      z-index: 1;
+      padding: 6rem 2.5rem;
+      max-width: 1200px;
+      width: 100%;
+      margin-left: auto;
+      text-align: right;
     }
-    @media (max-width: 640px) { .build-banner { padding: 36px 28px 32px; } }
 
-    .build-eyebrow {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      color: var(--accent);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-    .build-title {
+    .build-heading {
       font-family: var(--bebas);
-      font-size: clamp(2.5rem, 6vw, 5.2rem);
+      font-size: clamp(3.5rem, 8vw, 7rem);
       line-height: 0.9;
-      margin-bottom: 22px;
+      color: var(--white);
+      margin-bottom: 2rem;
     }
-    .build-title .ac { color: var(--accent); }
+
+    .build-heading .accent {
+      color: var(--green);
+    }
 
     .build-body {
-      font-size: 1rem;
-      color: #999;
-      line-height: 1.7;
-      max-width: 580px;
-      margin-bottom: 32px;
+      font-family: var(--barlow);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.75;
+      color: rgba(245,245,240,0.75);
+      max-width: 560px;
+      margin-left: auto;
+      margin-bottom: 2.5rem;
     }
 
-    .build-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
-    .pill {
+    .build-body p + p {
+      margin-top: 1.25rem;
+    }
+
+    .ep1-badge {
+      display: inline-block;
       font-family: var(--mono);
-      font-size: 0.58rem;
+      font-size: 0.72rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      padding: 6px 14px;
-      border: 1px solid var(--border);
-      color: var(--grey);
-    }
-    .pill.on {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(212,255,0,0.04);
-    }
-
-    /* River crossing callout */
-    .callout {
-      background: var(--accent);
       color: var(--black);
-      padding: 28px 36px;
-      margin-top: 28px;
-      display: flex;
-      align-items: flex-start;
-      gap: 24px;
-    }
-    .callout-num {
-      font-family: var(--bebas);
-      font-size: 3.2rem;
-      line-height: 0.88;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .callout-body h4 {
-      font-family: var(--bebas);
-      font-size: 1.3rem;
-      letter-spacing: 0.06em;
-      margin-bottom: 6px;
-    }
-    .callout-body p {
-      font-size: 0.92rem;
-      color: rgba(0,0,0,0.58);
-      line-height: 1.55;
+      background: var(--green);
+      padding: 0.5rem 1.25rem;
+      border-radius: 2px;
     }
 
-    /* ─────────────────────────────────────
-       PULLQUOTE BREAK — 02
-    ───────────────────────────────────── */
-    .pq-break-2 {
-      padding: 120px 6vw;
-      background: var(--deep);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-    .pq-break-2 .pq-inner { max-width: 1040px; margin: 0 auto; }
-    .pq-h-rule { width: 100%; height: 1px; background: var(--border); margin-bottom: 32px; }
-    .pq-h-rule.bot { margin-top: 32px; margin-bottom: 0; }
-    .pq-big {
-      font-family: var(--bebas);
-      font-size: clamp(3rem, 8vw, 7rem);
-      line-height: 0.88;
+    .instagram-cta {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-family: var(--barlow);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
       color: var(--white);
-      margin-bottom: 32px;
-    }
-    .pq-big .ac { color: var(--accent); }
-    .pq-source {
-      font-family: var(--mono);
-      font-size: 0.6rem;
-      color: var(--grey);
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 2px solid var(--green);
+      padding-bottom: 2px;
+      transition: color 0.2s;
     }
 
-    /* ─────────────────────────────────────
-       CONTACT
-    ───────────────────────────────────── */
+    .instagram-cta:hover {
+      color: var(--green);
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 0;
+    }
+
+    /* ─── CONTACT ─── */
     #contact {
-      padding: 120px 6vw;
-      background: var(--accent);
+      background: var(--green);
+      padding: 6rem 2.5rem;
       position: relative;
       overflow: hidden;
     }
+
     #contact::before {
-      content: 'DM';
+      content: 'DIRT MONEY';
       position: absolute;
-      right: -3vw; top: -4vw;
       font-family: var(--bebas);
-      font-size: clamp(22vw, 32vw, 520px);
-      color: rgba(0,0,0,0.06);
-      line-height: 0.85;
+      font-size: clamp(8rem, 22vw, 18rem);
+      color: rgba(8,8,8,0.07);
+      white-space: nowrap;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       pointer-events: none;
       user-select: none;
+      line-height: 1;
     }
-    #contact .inner { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; }
 
-    #contact .sec-label { color: rgba(0,0,0,0.38); }
-    #contact .sec-label::before { background: rgba(0,0,0,0.28); }
+    .contact-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
 
     .contact-heading {
       font-family: var(--bebas);
-      font-size: clamp(4.5rem, 11vw, 9rem);
-      line-height: 0.87;
+      font-size: clamp(3rem, 7vw, 6rem);
+      line-height: 0.9;
       color: var(--black);
-      margin-bottom: 20px;
-    }
-    .contact-sub {
-      font-size: 1.05rem;
-      color: rgba(0,0,0,0.54);
-      max-width: 460px;
-      line-height: 1.66;
-      margin-bottom: 36px;
-      font-weight: 600;
-    }
-    .contact-email {
-      display: block;
-      font-family: var(--mono);
-      font-size: clamp(1rem, 2.4vw, 1.5rem);
-      color: var(--black);
-      text-decoration: none;
-      border-bottom: 2px solid rgba(0,0,0,0.22);
-      padding-bottom: 5px;
-      letter-spacing: 0.06em;
-      width: fit-content;
-      transition: border-color 0.2s, opacity 0.2s;
-      margin-bottom: 52px;
-    }
-    .contact-email:hover { border-color: var(--black); opacity: 0.62; }
-
-    .contact-meta {
-      display: flex; flex-wrap: wrap; gap: 40px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(0,0,0,0.14);
-    }
-    .cm-label {
-      font-family: var(--mono);
-      font-size: 0.56rem;
-      color: rgba(0,0,0,0.34);
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      margin-bottom: 5px;
-    }
-    .cm-val {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: rgba(0,0,0,0.65);
     }
 
-    /* ─────────────────────────────────────
-       FOOTER
-    ───────────────────────────────────── */
-    footer {
-      background: var(--deep);
-      border-top: 1px solid var(--border);
-      padding: 28px 5vw;
+    .contact-links {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: right;
     }
-    .footer-logo img {
-      height: 30px; width: auto; display: block;
-      opacity: 0.72;
-      filter: drop-shadow(0 0 6px rgba(212,255,0,0.15));
-    }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a {
+
+    .contact-link {
       font-family: var(--mono);
-      font-size: 0.58rem;
-      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--black);
       text-decoration: none;
-      letter-spacing: 0.12em;
-      transition: color 0.2s;
+      transition: opacity 0.2s;
     }
-    .footer-links a:hover { color: var(--accent); }
+
+    .contact-link:hover {
+      opacity: 0.6;
+    }
+
+    .contact-note {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(8,8,8,0.5);
+      margin-top: 0.5rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo img {
+      height: 28px;
+      width: auto;
+      opacity: 0.8;
+    }
+
     .footer-copy {
       font-family: var(--mono);
-      font-size: 0.56rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      width: 100%;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
     }
-    @media (min-width: 768px) { .footer-copy { width: auto; } }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.25rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-content {
+        padding: 0 1.25rem 0;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+      }
+
+      .stat {
+        padding: 1rem 1.25rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .ghost-number {
+        display: none;
+      }
+
+      #about {
+        padding: 5rem 1.25rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-photo {
+        min-height: 300px;
+      }
+
+      .who-content {
+        padding: 5rem 1.25rem;
+      }
+
+      #who {
+        background-attachment: scroll;
+      }
+
+      .build-content {
+        padding: 5rem 1.25rem;
+        text-align: left;
+      }
+
+      .build-body {
+        margin-left: 0;
+      }
+
+      #contact {
+        padding: 4rem 1.25rem;
+      }
+
+      .contact-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-links {
+        text-align: left;
+      }
+
+      footer {
+        padding: 2rem 1.25rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 5.5rem;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .hero-title {
+        font-size: 4.5rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
-<nav>
-  <a href="#" class="nav-logo"><img src="/logo.png" alt="DIRT MONEY" /></a>
-  <div class="nav-links">
-    <a href="#about">About</a>
-    <a href="#build">The Build</a>
-    <a href="https://kit.dirtmoney.ai" target="_blank">Media Kit</a>
-    <a href="#contact" class="nav-pill">Partner With Us</a>
-  </div>
-</nav>
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="/">
+      <img src="/logo.png" alt="Dirt Money" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">Story</a></li>
+      <li><a href="#who">Who We Are</a></li>
+      <li><a href="#build">The Build</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<!-- ── HERO ── -->
-<section id="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-bar"></div>
-
-  <div class="hero-top">
-    <img src="/logo.png" alt="DIRT MONEY" class="hero-logo-mark" />
-    <div class="hero-eyebrow">Western Australia &nbsp;·&nbsp; Est. 2026</div>
-  </div>
-
-  <div class="hero-type-block">
-    <span class="hero-word hero-word-dirt">DIRT</span>
-    <span class="hero-word hero-word-money">MONEY</span>
-    <p class="hero-tagline">Few mates. Right tools. Absolute carnage.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-prim">Work With Us</a>
-      <a href="https://kit.dirtmoney.ai" target="_blank" class="btn-ghost">Media Kit →</a>
-      <a href="https://instagram.com/dirt.moneyco" target="_blank" class="btn-ghost">@dirt.moneyco</a>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <p class="hero-label">Western Australia — Heavy Machinery Content</p>
+      <h1 class="hero-title">
+        <span>DIRT</span>
+        <span>MONEY</span>
+      </h1>
+      <p class="hero-tagline">Few mates. Right tools. Absolute carnage.</p>
     </div>
-  </div>
-
-  <div class="hero-stats-strip">
-    <div class="hero-stat">
-      <div class="hstat-num">10M+</div>
-      <div class="hstat-lbl">Views · Week One</div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">10M+</div>
+        <div class="stat-label">Views — Week One</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">10K</div>
+        <div class="stat-label">Followers &amp; Growing</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">Zero</div>
+        <div class="stat-label">Paid Promotion</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">1 JUN</div>
+        <div class="stat-label">Episode 1 Drops</div>
+      </div>
     </div>
-    <div class="hero-stat">
-      <div class="hstat-num">12%+</div>
-      <div class="hstat-lbl">Engagement Rate</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hstat-num">84%</div>
-      <div class="hstat-lbl">Male Audience</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hstat-num">$0</div>
-      <div class="hstat-lbl">Paid Promotion</div>
-    </div>
-  </div>
+  </section>
 
-  <div class="hero-scroll">Scroll</div>
-</section>
-
-<!-- ── PULLQUOTE BREAK 01 ── -->
-<div class="pq-break">
-  <div class="pq-rule top"></div>
-  <div class="pq-text">
-    10 MILLION VIEWS.<br>
-    <span class="ac">ZERO DOLLARS SPENT.</span>
-  </div>
-  <div class="pq-attr">— Week one &nbsp;·&nbsp; Organic only &nbsp;·&nbsp; Western Australia</div>
-  <div class="pq-rule bot"></div>
-</div>
-
-<!-- ── ABOUT ── -->
-<section id="about">
-  <div class="inner">
-    <div class="sec-label">About the Channel</div>
+  <!-- ABOUT -->
+  <section id="about">
+    <span class="ghost-number">01</span>
     <div class="about-grid">
-      <div>
-        <h2 class="about-heading">
-          Heavy<br>machines.<br><span class="ac">Real dirt.</span>
-        </h2>
-        <p class="about-body">DIRT MONEY is built around the machines, the work, and the people who actually operate them. Heavy earthmoving, broadacre farming, and machinery pushed past the point it's supposed to stop.</p>
-        <p class="about-body">No actors. No staging. Real operators, real equipment, real consequences. The audience followed because they could tell the difference immediately.</p>
-        <p class="about-body">Based in Western Australia. Filmed where the work happens.</p>
+      <div class="about-photo">
+        <span class="about-photo-caption">Sunnydale — WA Wheatbelt</span>
       </div>
-      <div class="about-cards">
-        <div class="fact-card">
-          <div class="fc-label">Audience Core</div>
-          <div class="fc-value">25–44 · 84% Male</div>
-          <div class="fc-sub">High purchasing power — machinery, tools, workwear, fuel.</div>
-        </div>
-        <div class="fact-card">
-          <div class="fc-label">Platform Presence</div>
-          <div class="fc-value">Instagram · YouTube · Facebook</div>
-          <div class="fc-sub">96% Instagram primary. Growing YouTube and Facebook presence.</div>
-        </div>
-        <div class="fact-card">
-          <div class="fc-label">Origin</div>
-          <div class="fc-value">Western Australia · Est. 2026</div>
-          <div class="fc-sub">Corrigin to the Pilbara. Filmed where the work actually happens.</div>
-        </div>
-        <div class="fact-card">
-          <div class="fc-label">Paid Promotion</div>
-          <div class="fc-value">$0 Spent</div>
-          <div class="fc-sub">10M+ views week one. Entirely organic. Zero advertising budget.</div>
+      <div class="about-copy">
+        <p class="section-label">01 — Story</p>
+        <h2 class="about-heading">How it<br/><em>Started</em></h2>
+        <div class="about-body">
+          <p>DIRT MONEY started the way most things do out here — someone had an idea that probably shouldn't work, and two blokes decided to film it anyway.</p>
+          <p>Jacob Turner is a qualified heavy diesel mechanic and broadacre farmer running 3,300 hectares in the WA Wheatbelt. Cam Nash is an earthmoving operator with more machine hours than most people have work hours. Together they've got the skills, the gear, and the complete absence of self-preservation required to do what they do on camera.</p>
+          <p>The first video dropped. 10 million views in a week. Zero paid promotion. The audience found it because it's real — real machines, real work, real consequences.</p>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── BUILD SERIES ── -->
-<section id="build">
-  <div class="inner">
-    <div class="sec-label">The Build Series</div>
-    <div class="build-banner">
-      <div class="build-eyebrow">Series 01 — Coming Soon</div>
-      <h2 class="build-title">THE <span class="ac">BUILD</span><br>SERIES</h2>
-      <p class="build-body">A John Deere 9750 STS combine stripped back and turned into something that has no right to move the way it will. Eight to ten episodes filmed on the Sunnydale farm in Western Australia. The finale? A river crossing — shot after the series drops.</p>
-      <div class="build-pills">
-        <span class="pill on">8–10 Episodes</span>
-        <span class="pill on">John Deere 9750 STS</span>
-        <span class="pill on">Sunnydale Farm WA</span>
-        <span class="pill on">River Crossing Finale</span>
-        <span class="pill">Next Build — Coming</span>
-      </div>
-      <a href="https://instagram.com/dirt.moneyco" target="_blank" class="btn-prim">Watch on Instagram</a>
-    </div>
-    <div class="callout">
-      <div class="callout-num">01</div>
-      <div class="callout-body">
-        <h4>THE RIVER CROSSING — THE FINALE</h4>
-        <p>The river crossing is the season finale — filmed after the last episode drops. The most anticipated moment of the series. Brand integrations into this build are front row for it.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  <div class="divider"></div>
 
-<!-- ── PULLQUOTE BREAK 02 ── -->
-<div class="pq-break-2">
-  <div class="pq-inner">
-    <div class="pq-h-rule"></div>
-    <div class="pq-big">
-      The audience is real.<br>
-      The machines are real.<br>
-      <span class="ac">The results are real.</span>
+  <!-- WHO WE ARE -->
+  <section id="who">
+    <div class="who-content">
+      <p class="section-label">02 — Who We Are</p>
+      <blockquote class="who-quote">
+        "We didn't<br/>start a<br/><span class="accent">channel.</span><br/>We just<br/>started<br/>filming."
+      </blockquote>
+      <p class="who-attribution">— Jacob Turner, Co-founder</p>
     </div>
-    <div class="pq-h-rule bot"></div>
-    <div class="pq-source" style="margin-top:24px;">@dirt.moneyco &nbsp;·&nbsp; Instagram &nbsp;·&nbsp; 2026</div>
-  </div>
-</div>
+    <span class="ghost-number" style="color: rgba(255,255,255,0.03);">02</span>
+  </section>
 
-<!-- ── CONTACT ── -->
-<section id="contact">
-  <div class="inner">
-    <div class="sec-label">Get In Touch</div>
-    <div class="contact-heading">Let's<br>Work.</div>
-    <p class="contact-sub">Partnership enquiries, sponsorship proposals, and brand collaborations. We're looking for brands that belong in this world — not just looking to borrow it.</p>
-    <a href="mailto:brands@dirtmoney.ai" class="contact-email">brands@dirtmoney.ai</a>
-    <div class="contact-meta">
-      <div>
-        <div class="cm-label">Instagram</div>
-        <div class="cm-val"><a href="https://instagram.com/dirt.moneyco" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid rgba(0,0,0,0.2);">@dirt.moneyco</a></div>
+  <div class="divider"></div>
+
+  <!-- BUILD SERIES -->
+  <section id="build">
+    <div class="build-content">
+      <p class="section-label" style="text-align: inherit;">03 — The Build Series</p>
+      <h2 class="build-heading">
+        John Deere<br/>
+        <span class="accent">9750 STS.</span><br/>
+        9 Tonnes.
+      </h2>
+      <div class="build-body">
+        <p>The hero build is a John Deere 9750 STS combine harvester — 9 tonnes of machine stripped back and rebuilt into something that should not move the way it does. Eight to ten episodes. Filmed at Sunnydale farm in the WA Wheatbelt.</p>
+        <p>The finale is a river crossing, filmed after the last episode drops. You'll understand why when you see it.</p>
       </div>
       <div>
-        <div class="cm-label">Response Time</div>
-        <div class="cm-val">Within 48 hours</div>
+        <span class="ep1-badge">Episode 1 — 1 June 2026</span>
       </div>
-      <div>
-        <div class="cm-label">Entity</div>
-        <div class="cm-val">Dirt Money Co Pty Ltd</div>
-      </div>
-      <div>
-        <div class="cm-label">Location</div>
-        <div class="cm-val">Western Australia</div>
+      <div style="margin-top: 1.5rem;">
+        <a class="instagram-cta" href="https://www.instagram.com/dirt.moneyco" target="_blank" rel="noopener">
+          Follow the build → @dirt.moneyco
+        </a>
       </div>
     </div>
-  </div>
-</section>
+    <span class="ghost-number">03</span>
+  </section>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-logo"><img src="/logo.png" alt="DIRT MONEY" /></div>
-  <div class="footer-links">
-    <a href="https://instagram.com/dirt.moneyco" target="_blank">Instagram</a>
-    <a href="https://kit.dirtmoney.ai" target="_blank">Media Kit</a>
-    <a href="mailto:brands@dirtmoney.ai">Contact</a>
-  </div>
-  <div class="footer-copy">© 2026 DIRT MONEY CO PTY LTD — WESTERN AUSTRALIA — dirtmoney.ai</div>
-</footer>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div>
+        <h2 class="contact-heading">Get<br/>In<br/>Touch.</h2>
+        <p class="contact-note">Media kit → kit.dirtmoney.ai</p>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:brands@dirtmoney.ai">brands@dirtmoney.ai</a>
+        <a class="contact-link" href="https://www.instagram.com/dirt.moneyco" target="_blank" rel="noopener">@dirt.moneyco</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a class="footer-logo" href="/">
+      <img src="/logo.png" alt="Dirt Money" />
+    </a>
+    <p class="footer-copy">© 2026 Dirt Money Co Pty Ltd — Western Australia</p>
+  </footer>
 
 </body>
 </html>
