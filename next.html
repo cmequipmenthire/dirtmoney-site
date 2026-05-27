@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIRT MONEY — What's Next</title>
+  <meta name="description" content="Something is coming." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #080808;
+      --green: #d4ff00;
+      --white: #f5f5f0;
+      --grey: #555550;
+      --bebas: 'Bebas Neue', sans-serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--mono);
+      overflow-x: hidden;
+    }
+
+    /* Film grain */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      text-align: center;
+      gap: 0;
+    }
+
+    /* Logo */
+    .logo {
+      width: clamp(140px, 28vw, 320px);
+      height: auto;
+      margin-bottom: 2.5rem;
+      filter: drop-shadow(0 0 40px rgba(212,255,0,0.2));
+    }
+
+    /* Accent line */
+    .accent-line {
+      width: clamp(200px, 50vw, 480px);
+      height: 4px;
+      background: var(--green);
+      margin: 0 auto 2.5rem;
+    }
+
+    /* Headline */
+    .headline {
+      font-family: var(--bebas);
+      font-size: clamp(4rem, 14vw, 11rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 3rem;
+    }
+
+    /* Classified blocks */
+    .classified {
+      width: clamp(260px, 60vw, 560px);
+      margin: 0 auto 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: left;
+    }
+
+    .redacted-line {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--grey);
+      letter-spacing: 0.06em;
+    }
+
+    .redacted-line .label {
+      white-space: nowrap;
+      min-width: 60px;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      color: #3a3a36;
+    }
+
+    .bar {
+      display: inline-block;
+      background: var(--white);
+      color: var(--white);
+      border-radius: 1px;
+      user-select: none;
+      font-size: 0.85rem;
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+    }
+
+    .bar-lg { padding: 0.15em 0.5em; min-width: 220px; }
+    .bar-md { padding: 0.15em 0.5em; min-width: 140px; }
+    .bar-sm { padding: 0.15em 0.5em; min-width: 90px; }
+
+    /* Countdown */
+    .countdown-wrap {
+      margin-bottom: 2.5rem;
+    }
+
+    .countdown-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 1rem;
+    }
+
+    .countdown {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .cd-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .cd-num {
+      font-family: var(--bebas);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1;
+      color: var(--green);
+      min-width: 3ch;
+      text-align: center;
+    }
+
+    .cd-sep {
+      font-family: var(--bebas);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1;
+      color: var(--grey);
+      padding-bottom: 0.2em;
+      opacity: 0.4;
+    }
+
+    .cd-unit {
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    /* Back link */
+    .back-link {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover {
+      color: var(--white);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <img class="logo" src="/logo.png" alt="DIRT MONEY" />
+
+    <div class="accent-line"></div>
+
+    <h1 class="headline">THE NEXT<br/>BUILD</h1>
+
+    <div class="classified">
+      <div class="redacted-line">
+        <span class="label">Machine</span>
+        <span class="bar bar-lg">████████████████████████████</span>
+      </div>
+      <div class="redacted-line">
+        <span class="label">Location</span>
+        <span class="bar bar-md">████████████████████</span>
+      </div>
+      <div class="redacted-line">
+        <span class="label">Build</span>
+        <span class="bar bar-lg">████████████████████████████████</span>
+      </div>
+      <div class="redacted-line">
+        <span class="label">Crew</span>
+        <span class="bar bar-sm">█████████████</span>
+      </div>
+      <div class="redacted-line">
+        <span class="label">Outcome</span>
+        <span class="bar bar-lg">████████████████████████████</span>
+      </div>
+      <div class="redacted-line">
+        <span class="label">Risk</span>
+        <span class="bar bar-md">████████████████████</span>
+        <span style="font-size:0.6rem; color:#3a3a36;">[CLASSIFIED]</span>
+      </div>
+    </div>
+
+    <div class="countdown-wrap">
+      <p class="countdown-label">Revealed in</p>
+      <div class="countdown">
+        <div class="cd-block">
+          <span class="cd-num" id="days">000</span>
+          <span class="cd-unit">Days</span>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-block">
+          <span class="cd-num" id="hours">00</span>
+          <span class="cd-unit">Hrs</span>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-block">
+          <span class="cd-num" id="mins">00</span>
+          <span class="cd-unit">Min</span>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-block">
+          <span class="cd-num" id="secs">00</span>
+          <span class="cd-unit">Sec</span>
+        </div>
+      </div>
+    </div>
+
+    <a class="back-link" href="/">dirtmoney.ai</a>
+
+  </div>
+
+  <script>
+    function updateCountdown() {
+      const reveal = new Date('2026-09-01T00:00:00+08:00');
+      const now = new Date();
+      const diff = reveal - now;
+      if (diff <= 0) {
+        document.getElementById('countdown').textContent = 'REVEALED';
+        return;
+      }
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+      const secs = Math.floor((diff % (1000*60)) / 1000);
+      document.getElementById('days').textContent = String(days).padStart(3,'0');
+      document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+      document.getElementById('mins').textContent = String(mins).padStart(2,'0');
+      document.getElementById('secs').textContent = String(secs).padStart(2,'0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>

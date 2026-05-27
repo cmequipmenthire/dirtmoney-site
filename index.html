@@ -88,6 +88,20 @@
       color: var(--green);
     }
 
+    .nav-links a.nav-mediakit {
+      color: var(--green);
+      border: 1px solid rgba(212,255,0,0.35);
+      padding: 0.3em 0.75em;
+      border-radius: 2px;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+    }
+
+    .nav-links a.nav-mediakit:hover {
+      background: rgba(212,255,0,0.1);
+      border-color: var(--green);
+      color: var(--green);
+    }
+
     /* ─── HERO ─── */
     #hero {
       position: relative;
@@ -652,6 +666,7 @@
       <li><a href="#who">Who We Are</a></li>
       <li><a href="#build">The Build</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a class="nav-mediakit" href="https://kit.dirtmoney.ai" target="_blank" rel="noopener">Media Kit →</a></li>
     </ul>
   </nav>
 
@@ -670,11 +685,11 @@
     </div>
     <div class="hero-stats">
       <div class="stat">
-        <div class="stat-number">10M+</div>
+        <div class="stat-number" data-target="10" data-suffix="M+">10M+</div>
         <div class="stat-label">Views — Week One</div>
       </div>
       <div class="stat">
-        <div class="stat-number">10K</div>
+        <div class="stat-number" data-target="10" data-suffix="K">10K</div>
         <div class="stat-label">Followers &amp; Growing</div>
       </div>
       <div class="stat">
@@ -733,7 +748,7 @@
         9 Tonnes.
       </h2>
       <div class="build-body">
-        <p>The hero build is a John Deere 9750 STS combine harvester — 9 tonnes of machine stripped back and rebuilt into something that should not move the way it does. Eight to ten episodes. Filmed at Sunnydale farm in the WA Wheatbelt.</p>
+        <p>A John Deere 9750 STS combine harvester — turned into a monster truck. 9 tonnes of machine, stripped and rebuilt into something that has no right to move the way it will. Eight to ten episodes. Filmed at Sunnydale farm in the WA Wheatbelt.</p>
         <p>The finale is a river crossing, filmed after the last episode drops. You'll understand why when you see it.</p>
       </div>
       <div>
@@ -768,7 +783,56 @@
       <img src="/logo.png" alt="Dirt Money" />
     </a>
     <p class="footer-copy">© 2026 Dirt Money Co Pty Ltd — Western Australia</p>
+    <a href="/next.html" style="display:block; margin-top:1rem; font-family:var(--mono); font-size:0.65rem; letter-spacing:0.1em; color:var(--grey); text-decoration:none; opacity:0.5; transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.5'">What's next →</a>
   </footer>
 
+<style>
+  /* ─── FILM GRAIN ─── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+  }
+</style>
+
+<script>
+  /* ─── COUNTER ANIMATION ─── */
+  function animateCounter(el, target, prefix, suffix, duration) {
+    const start = performance.now();
+    const update = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * target);
+      el.textContent = prefix + current.toLocaleString() + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const strip = entry.target;
+      const nums = strip.querySelectorAll('.stat-number[data-target]');
+      nums.forEach(el => {
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || '';
+        const prefix = el.dataset.prefix || '';
+        animateCounter(el, target, prefix, suffix, 1500);
+      });
+      statsObserver.unobserve(strip);
+    });
+  }, { threshold: 0.3 });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const strip = document.querySelector('.hero-stats');
+    if (strip) statsObserver.observe(strip);
+  });
+</script>
 </body>
 </html>
